@@ -24,14 +24,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
-      "bundler": "metro",
-      "output": "static",
-      "publicPath": "/TheHellBoard/",
-      "build": {
-        "babel": {
-          "include": ["@expo/vector-icons"]
-        }
-      }
+      "bundler": "metro"
     },
     "plugins": [
       "expo-router"
