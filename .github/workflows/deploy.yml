@@ -18,25 +18,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: npm
 
-      - name: Setup Expo and dependencies
+      - name: Install dependencies
         run: |
-          npm install -g expo-cli
-          npm install -g sharp-cli
           npm install
 
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Build static web app
+      - name: Build website
         run: |
-          npx expo install @expo/webpack-config
-          npx expo export:web
+          npm run build:web
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
