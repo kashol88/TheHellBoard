@@ -23,15 +23,17 @@ jobs:
       - name: Install dependencies
         run: |
           npm install --legacy-peer-deps
+          npm install -g expo-cli
 
-      - name: Build website
+      - name: Install and build web
         run: |
-          npm run build:web
+          npx expo install @expo/webpack-config
+          npx expo export:web
 
-      - name: Create gh-pages branch if not exists
-        run: |
-          git checkout -b gh-pages || git checkout gh-pages
-          git push origin gh-pages --force
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./web-build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -39,5 +41,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./web-build
           force_orphan: true
+          enable_jekyll: false
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com

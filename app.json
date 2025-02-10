@@ -26,7 +26,12 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro",
       "output": "static",
-      "publicPath": "/TheHellBoard/"
+      "publicPath": "/TheHellBoard/",
+      "build": {
+        "babel": {
+          "include": ["@expo/vector-icons"]
+        }
+      }
     },
     "plugins": [
       "expo-router"
