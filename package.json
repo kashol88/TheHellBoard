@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.4",
+    "@expo/webpack-config": "^19.0.0",
     "expo": "~52.0.28",
     "expo-router": "^3.4.6",
     "expo-status-bar": "~2.0.1",
@@ -20,6 +21,7 @@
     "react-native": "0.76.6",
     "react-native-safe-area-context": "^5.1.0",
     "react-native-screens": "^4.6.0",
+    "react-native-web": "~0.19.6",
     "socket.io-client": "^4.8.1"
   },
   "devDependencies": {
